@@ -30,7 +30,19 @@
 > 3. 開啟命令提示字元，輸入ant -v指令，若出現版本資訊表示安裝成功。  
 <img src="https://i.imgur.com/kjimDVa.png" alt="ANT_HOME" width="45%" height="45%"></img>
 * 使用ant編譯jsp  
-使用ant之前需要寫一份xml，告訴ant該執行那些工作(target)。若沒有明確指定，ant預設使用[build.xml](https://github.com/hsush2017/precompile_jsp/blob/master/build.xml)進行。  
+使用ant之前需要寫一份xml，告訴ant該執行那些工作(target)。若沒有明確指定，ant預設使用[build.xml](https://github.com/hsush2017/precompile_jsp/blob/master/build.xml)進行。 
+
+![property](https://i.imgur.com/DZGtaqs.png)  
+參數設定，請依照電腦的設定更換。
+
+![path設定](https://i.imgur.com/9nAJsFR.png)  
+引入該專案會用到的jar和classpath。  
+
+![jspc](https://i.imgur.com/rfarglb.png)  
+透過JspC套件，**將jsp轉換成JAVA檔**。  
+在\<taskdef\>中，定義JspC，設定JspC會用到的jar和classpath，並取名為jasper2。  
+在\<jasper2\>中，轉換jsp至java。**addwebxmlmappings="true"表示在轉換時會將generated_web.xml合併到web.xml中**。傳換完成將JAVA檔存於jsp_java目錄下。
+
 
 
 * 使用ant打包和部屬專案
