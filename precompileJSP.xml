@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<project basedir="." default="precompile_jsp" name="TSGH_TBA">
+	<!-- 變數宣告 -->
+	<property name="ECLIPSE_HOME" value="C:/Users/ksidemo/eclipse/jee-neon/eclipse/" />
+	<property name="debuglevel" value="source,lines,vars" />
+	<property name="target" value="1.7" />
+	<property name="source" value="1.7" />
+	<property name="tomcat.home" value="D:\workspace\apache-tomcat-7.0.77" />
+	<property name="webapp.hostname" value="localhost" />
+	<property name="webapp.name" value="${ant.project.name}" />
+
+	<!-- 設定專案會用到的jar -->
+	<path id="Apache Tomcat v7.0 [Apache Tomcat v7.0].libraryclasspath">
+		<pathelement location="../apache-tomcat-7.0.77/lib/annotations-api.jar" />
+		<pathelement location="../apache-tomcat-7.0.77/lib/catalina-ant.jar" />
+		<pathelement location="../apache-tomcat-7.0.77/lib/catalina-ha.jar" />
+		<pathelement location="../apache-tomcat-7.0.77/lib/catalina-tribes.jar" />
+		<pathelement location="../apache-tomcat-7.0.77/lib/catalina.jar" />
+		<pathelement location="../apache-tomcat-7.0.77/lib/ecj-4.4.2.jar" />
+		<pathelement location="../apache-tomcat-7.0.77/lib/el-api.jar" />
+		<pathelement location="../apache-tomcat-7.0.77/lib/jasper-el.jar" />
+		<pathelement location="../apache-tomcat-7.0.77/lib/jasper.jar" />
+		<pathelement location="../apache-tomcat-7.0.77/lib/jsp-api.jar" />
+		<pathelement location="../apache-tomcat-7.0.77/lib/servlet-api.jar" />
+		<pathelement location="../apache-tomcat-7.0.77/lib/tomcat-api.jar" />
+		<pathelement location="../apache-tomcat-7.0.77/lib/tomcat-coyote.jar" />
+		<pathelement location="../apache-tomcat-7.0.77/lib/tomcat-dbcp.jar" />
+		<pathelement location="../apache-tomcat-7.0.77/lib/tomcat-i18n-es.jar" />
+		<pathelement location="../apache-tomcat-7.0.77/lib/tomcat-i18n-fr.jar" />
+		<pathelement location="../apache-tomcat-7.0.77/lib/tomcat-i18n-ja.jar" />
+		<pathelement location="../apache-tomcat-7.0.77/lib/tomcat-jdbc.jar" />
+		<pathelement location="../apache-tomcat-7.0.77/lib/tomcat-util.jar" />
+		<pathelement location="../apache-tomcat-7.0.77/lib/tomcat7-websocket.jar" />
+		<pathelement location="../apache-tomcat-7.0.77/lib/websocket-api.jar" />
+	</path>
+	<path id="Web App Libraries.libraryclasspath">
+		<pathelement location="WebContent/WEB-INF/lib/Syscom.PIS.Common.DESUtility.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/activation.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/ajaxtags-1.2-beta3.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/ant.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/axis.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/codeStorm.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/commons-beanutils-1.8.2.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/commons-collections-3.2.1.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/commons-collections4-4.1.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/commons-configuration-1.3.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/commons-digester-2.1.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/commons-discovery-0.2.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/commons-fileupload-20070103.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/commons-io-1.2.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/commons-lang-2.3.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/commons-logging-1.1.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/commons-logging-api.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/commons-math-1.1.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/commons-net-1.4.1.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/cos.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/displaytag-1.1.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/displaytag-export-poi-1.1.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/displaytag-portlet-1.1.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/dom4j-1.5.1.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/dwr.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/edtftpj-pro.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/esapi-2.1.0.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/ezmorph-1.0.3.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/geronimo-stax-api_1.0_spec-1.0.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/gson-2.2.2.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/hmzip16.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/hsqldb-1.8.0-10.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/iReport.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/iText-2.1.7.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/iTextAsian.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/jakarta-oro-2.0.8.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/jasperreports-5.0.1.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/jaxen-1.1-beta-4.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/jaxrpc.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/jconn4.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/jdom.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/jericho-html-2.1.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/jruby.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/jsch-0.1.50.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/json-lib-2.0-jdk15.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/jstl.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/junit-4.8.1.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/jxl.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/ksi-1.3.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/ksi-codegen-1.0.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/log4j-1.2.17.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/mail.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/mysql-connector-java-5.0.8-bin.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/ojdbc14.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/poi-3.17.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/poi-examples-3.17.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/poi-excelant-3.17.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/poi-ooxml-3.17.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/poi-ooxml-schemas-3.17.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/poi-scratchpad-3.17.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/rowset.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/saaj.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/smartupload.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/sqljdbc.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/standard.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/webserviceutils.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/wsdl4j.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/xmlbeans-2.3.0.jar" />
+		<pathelement location="WebContent/WEB-INF/lib/xmlbeans-2.6.0.jar" />
+	</path>
+	<path id="EAR Libraries.libraryclasspath" />
+	
+	<!-- 設定classpath -->
+	<path id="TSGH_TBA.classpath">
+		<pathelement location="WebContent/WEB-INF/classes" />
+		<path refid="Apache Tomcat v7.0 [Apache Tomcat v7.0].libraryclasspath" />
+		<path refid="Web App Libraries.libraryclasspath" />
+		<path refid="EAR Libraries.libraryclasspath" />
+	</path>
+
+	
+	
+	<target name="jspc" description="run the JSP compiler and turn JSP pages into Java source">
+		<taskdef classname="org.apache.jasper.JspC" name="jasper2">
+			<classpath>
+				<pathelement location="${java.home}/../lib/tools.jar" />
+				<fileset dir="${tomcat.home}/bin">
+					<include name="*.jar" />
+				</fileset>
+				<fileset dir="${tomcat.home}/lib">
+					<include name="*.jar" />
+				</fileset>
+			</classpath>
+		</taskdef>
+		<jasper2 verbose="0" failonerror="false" addwebxmlmappings="true" 
+			uriroot="${tomcat.home}/webapps/${webapp.name}/" 
+			webXmlFragment="${tomcat.home}/webapps/${webapp.name}/WEB-INF/generated_web.xml" 
+			outputDir="${tomcat.home}/webapps/${webapp.name}/WEB-INF/jsp_java" />
+	</target>
+
+	<target name="compile_jsp" description="compile jsp java to class">
+		<!-- START: use eclipse compiler -->
+		<copy todir="${ant.library.dir}">
+			<fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core-*.jar" />
+		</copy>
+		<unzip dest="${ant.library.dir}">
+			<patternset includes="jdtCompilerAdapter.jar" />
+			<fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core-*.jar" />
+		</unzip>
+		<property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter" />
+		<!-- END: use eclipse compiler -->
+
+		<javac failonerror="false" deprecation="no" nowarn="true" encoding="UTF-8" debug="true" 
+			debuglevel="${debuglevel}" includeantruntime="false" source="${source}" target="${target}" 
+			srcdir="${tomcat.home}/webapps/${webapp.name}/WEB-INF/jsp_java" 
+			destdir="${tomcat.home}/webapps/${webapp.name}/WEB-INF/classes">
+
+			<classpath path="${tomcat.home}/webapps/${webapp.name}/WEB-INF/classes" />
+			<classpath refid="TSGH_TBA.classpath" />
+		</javac>
+
+		<delete dir="${tomcat.home}/webapps/${webapp.name}/WEB-INF/jsp_java" />
+	</target>
+
+	<target name="precompile_jsp" depends="jspc, compile_jsp" />
+</project>
