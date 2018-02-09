@@ -18,15 +18,20 @@
 ![Pre-compilation on start-up](https://i.imgur.com/sLZvngz.png)  
   
 3. **Pre-compilation at build**  
-這種方式是在**專案build期間**編譯jsp。build專案的工具有很多，例如[ant](http://ant.apache.org/), [maven](https://maven.apache.org/), [gradle](https://gradle.org/)等，本文使用ant作為build專案的工具。
+這種方式是在**專案build期間**編譯jsp。build專案的工具有很多，例如[ant](http://ant.apache.org/), [maven](https://maven.apache.org/), [gradle](https://gradle.org/)等，我們使用ant作為build專案的工具。
+
+本文採用第三種方式，Pre-compilation at build。  
 
 ## 使用ant預先編譯jsp
 * 安裝ant  
 > 1. [下載](http://ant.apache.org/bindownload.cgi)ant進行安裝
 > 2. 設定環境變數%ANT_HOME%，%ANT_HOME%加到PATH路徑  
 <img src="https://i.imgur.com/MZ8wKdc.png" alt="ANT_HOME" width="45%" height="45%"></img> <img src="https://i.imgur.com/HYYA5BN.png" alt="PATH_HOME" width="45%" height="45%"></img>
-> 3. 將開啟命令提示字元測試是否安裝成功。  
+> 3. 開啟命令提示字元，輸入ant -v指令，若出現版本資訊表示安裝成功。  
 <img src="https://i.imgur.com/kjimDVa.png" alt="ANT_HOME" width="45%" height="45%"></img>
-* 使用ant編譯專案
+* 使用ant編譯jsp  
+使用ant之前需要寫一份xml，告訴ant該執行那些工作(target)。若沒有明確指定，ant預設使用[build.xml](https://github.com/hsush2017/precompile_jsp/blob/master/build.xml)進行。  
+
+
 * 使用ant打包和部屬專案
 * 使用ant啟動tomcat server
