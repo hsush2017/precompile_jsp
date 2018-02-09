@@ -16,7 +16,6 @@
 另一種方式，是在**tomcat server啟動期間**編譯jsp。因此，我們必須透過修改web.xml，告訴server在啟動時編譯jsp。  
 如下圖，在每個jsp頁面加上<load-on-startup>的tag即可。  
 ![Pre-compilation on start-up](https://i.imgur.com/sLZvngz.png)  
-  
 3. **Pre-compilation at build**  
 這種方式是在**專案build期間**編譯jsp。build專案的工具有很多，例如[ant](http://ant.apache.org/), [maven](https://maven.apache.org/), [gradle](https://gradle.org/)等，我們使用ant作為build專案的工具。
 
@@ -34,10 +33,9 @@
 <img src="https://i.imgur.com/kjimDVa.png" alt="ANT_HOME" width="45%" height="45%"></img>  
   
 #### 使用ant編譯jsp  
-使用ant之前需要寫一份xml，告訴ant該執行那些工作(target)。若沒有明確指定，ant預設使用[build.xml](https://github.com/hsush2017/precompile_jsp/blob/master/build.xml)進行。 
-  
-  
-![property](https://i.imgur.com/DZGtaqs.png)  
+使用ant之前需要寫一份xml，告訴ant該執行那些工作(target)。我們將xml命名為precompileJSP.xml。  
+  
+![property](https://i.imgur.com/DZGtaqs.png)  
 參數設定，請依照電腦的設定更換。
 
 ![path設定](https://i.imgur.com/9nAJsFR.png)  
@@ -56,3 +54,22 @@
 
 ![precompile jsp](https://i.imgur.com/9MEuY3L.png)  
 依序執行target: jspc, compile_jsp。
+
+開啟命令提示字元，移動到專案目錄下，執行ant。  
+![執行ant](https://i.imgur.com/fvXYgrK.png)  
+
+#### 執行結果 
+1. **web.xml**  
+如下圖所示，左邊為原本的web.xml，右邊為執行後的web.xml，可看出web.xml多了編譯後的servlet設定。  
+![web.xml比較](https://i.imgur.com/lB4LXkH.png)  
+
+2. **jsp編譯後的class**  
+左邊為原本的classses目錄，編譯後，如右邊，多出org目錄。  
+![classes compare1](https://i.imgur.com/Rnpg8Hz.png)  
+org目錄下放所有jsp編譯過後的class檔。  
+![classes compare2](https://i.imgur.com/O1JPxZM.png)  
+
+3. **啟動tomcat後，觀察work目錄下將不再產生該專案jsp的java&class檔**  
+原本tomcat會將編譯jsp後產生的java & class檔放在[tomcat目錄]/work/Catalina/[專案路徑]/[專案名稱]/org/apache/jsp目錄下。
+如今我們透過ant幫tomcat預先編譯jsp後，tomcat會在classes目錄下找到這些jsp的class檔，因此將不再產生work目錄。  
+![觀察work目錄](https://i.imgur.com/rYtgH69.png)
