@@ -33,9 +33,8 @@
 <img src="https://i.imgur.com/kjimDVa.png" alt="ANT_HOME" width="45%" height="45%"></img>  
   
 #### 使用ant編譯jsp  
-使用ant之前需要寫一份xml，告訴ant該執行那些工作(target)。我們將xml命名為precompileJSP.xml。  
-      
-![property](https://i.imgur.com/DZGtaqs.png)    
+使用ant之前需要寫一份xml，告訴ant該執行那些工作(target)。我們將xml命名為precompileJSP.xml。  
+![property](https://i.imgur.com/DZGtaqs.png)  
 參數設定，請依照電腦的設定更換。
 
 ![path設定](https://i.imgur.com/9nAJsFR.png)  
