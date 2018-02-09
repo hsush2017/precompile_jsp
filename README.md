@@ -23,16 +23,21 @@
 本文採用第三種方式，Pre-compilation at build。  
 
 ## 使用ant預先編譯jsp
-* 安裝ant  
-> 1. [下載](http://ant.apache.org/bindownload.cgi)ant進行安裝
-> 2. 設定環境變數%ANT_HOME%，%ANT_HOME%加到PATH路徑  
-<img src="https://i.imgur.com/MZ8wKdc.png" alt="ANT_HOME" width="45%" height="45%"></img> <img src="https://i.imgur.com/HYYA5BN.png" alt="PATH_HOME" width="45%" height="45%"></img>
-> 3. 開啟命令提示字元，輸入ant -v指令，若出現版本資訊表示安裝成功。  
-<img src="https://i.imgur.com/kjimDVa.png" alt="ANT_HOME" width="45%" height="45%"></img>
-* 使用ant編譯jsp  
+#### 安裝ant  
+1. [下載](http://ant.apache.org/bindownload.cgi)ant進行安裝  
+  
+2. 設定環境變數%ANT_HOME%，%ANT_HOME%加到PATH路徑  
+<img src="https://i.imgur.com/MZ8wKdc.png" alt="ANT_HOME" width="45%" height="45%"></img>
+<img src="https://i.imgur.com/HYYA5BN.png" alt="PATH_HOME" width="45%" height="45%"></img>  
+  
+3. 開啟命令提示字元，輸入ant -v指令，若出現版本資訊表示安裝成功。  
+<img src="https://i.imgur.com/kjimDVa.png" alt="ANT_HOME" width="45%" height="45%"></img>  
+  
+#### 使用ant編譯jsp  
 使用ant之前需要寫一份xml，告訴ant該執行那些工作(target)。若沒有明確指定，ant預設使用[build.xml](https://github.com/hsush2017/precompile_jsp/blob/master/build.xml)進行。 
-
-![property](https://i.imgur.com/DZGtaqs.png)  
+  
+  
+![property](https://i.imgur.com/DZGtaqs.png)  
 參數設定，請依照電腦的設定更換。
 
 ![path設定](https://i.imgur.com/9nAJsFR.png)  
@@ -41,9 +46,13 @@
 ![jspc](https://i.imgur.com/rfarglb.png)  
 透過JspC套件，**將jsp轉換成JAVA檔**。  
 在\<taskdef\>中，定義JspC，設定JspC會用到的jar和classpath，並取名為jasper2。  
-在\<jasper2\>中，轉換jsp至java。**addwebxmlmappings="true"表示在轉換時會將generated_web.xml合併到web.xml中**。傳換完成將JAVA檔存於jsp_java目錄下。
+在\<jasper2\>中，轉換jsp至java。**addwebxmlmappings="true"表示在轉換時會將generated_web.xml合併到web.xml中**。轉換完成將JAVA檔存於jsp_java目錄下。
 
+![compile jsp](https://i.imgur.com/AHMGUb8.png)  
+編譯java檔。  
+139-148行: 使用eclipse compiler編譯java。相較於java compiler，**eclipse compiler允許java檔有錯誤的狀況下編譯class檔**(雖然class是壞的)。若想使用java compiler，則可以刪除這幾行。  
+\<javac\>，將jsp_java目錄下的java檔，編譯成class檔，並將class檔放於tomcat中，該專案的WEB-INF/classes目錄下。  
+\<delete\>，將暫存的jsp_java目錄刪除。
 
-
-* 使用ant打包和部屬專案
-* 使用ant啟動tomcat server
+![precompile jsp](https://i.imgur.com/9MEuY3L.png)  
+依序執行target: jspc, compile_jsp。
