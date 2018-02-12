@@ -55,7 +55,7 @@
 依序執行target: jspc, compile_jsp。
 
 開啟命令提示字元，移動到專案目錄下，執行ant。  
-![執行ant](https://i.imgur.com/KMK6NEE.png)  
+![執行ant](https://i.imgur.com/yDNNeiQ.png)  
 
 ## 執行結果 
 1. **web.xml**  
