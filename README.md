@@ -70,5 +70,5 @@ org目錄下放所有jsp編譯過後的class檔。
 
 3. **啟動tomcat後，觀察work目錄下將不再產生該專案jsp的java&class檔**  
 原本tomcat會將編譯jsp後產生的java & class檔放在[tomcat目錄]/work/Catalina/[專案路徑]/[專案名稱]/org/apache/jsp目錄下。
-如今我們透過ant幫tomcat預先編譯jsp後，tomcat會在classes目錄下找到這些jsp的class檔，因此將不再產生work目錄。  
+如今我們透過ant幫tomcat預先編譯jsp後，tomcat會在classes目錄下找到這些jsp的class檔，因此將不再產生work目錄。  
 ![觀察work目錄](https://i.imgur.com/rYtgH69.png)
