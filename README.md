@@ -57,7 +57,7 @@
 開啟命令提示字元，移動到專案目錄下，執行ant。  
 ![執行ant](https://i.imgur.com/KMK6NEE.png)  
 
-#### 執行結果 
+## 執行結果 
 1. **web.xml**  
 如下圖所示，左邊為原本的web.xml，右邊為執行後的web.xml，可看出web.xml多了編譯後的servlet設定。  
 ![web.xml比較](https://i.imgur.com/lB4LXkH.png)  
@@ -71,4 +71,9 @@ org目錄下放所有jsp編譯過後的class檔。
 3. **啟動tomcat後，觀察work目錄下將不再產生該專案jsp的java&class檔**  
 原本tomcat會將編譯jsp後產生的java & class檔放在[tomcat目錄]/work/Catalina/[專案路徑]/[專案名稱]/org/apache/jsp目錄下。
 如今我們透過ant幫tomcat預先編譯jsp後，tomcat會在classes目錄下找到這些jsp的class檔，因此將不再產生work目錄。  
-![觀察work目錄](https://i.imgur.com/rYtgH69.png)
+![觀察work目錄](https://i.imgur.com/rYtgH69.png)  
+
+## 參考資料
+1. [Apache Ant](http://ant.apache.org/)
+2. [Optimize webpage performance using JSP Precompilation](https://www.linkedin.com/pulse/optimize-webpage-performance-using-jsp-precompilation-ajay-sharma/)
+3. [安道生練功房](http://www.andowson.com/posts/list/222.page)
