@@ -13,7 +13,7 @@
 如同上一段所述，當使用者第一次請求某jsp時執行。這是最簡單且預設的方式。
   
 2. **Pre-compilation on start-up**  
-另一種方式，是在**tomcat server啟動期間**編譯jsp。因此，我們必須透過修改web.xml，告訴server在啟動時編譯jsp。  
+另一種方式，是在**tomcat server啟動時**編譯jsp。因此，我們必須透過修改web.xml，告訴server在啟動時編譯jsp。  
 如下圖，在每個jsp頁面加上<load-on-startup>的tag即可。  
 ![Pre-compilation on start-up](https://i.imgur.com/sLZvngz.png)  
 3. **Pre-compilation at build**  
@@ -34,7 +34,7 @@
   
 #### 使用ant編譯jsp  
 使用ant之前需要寫一份xml，告訴ant該執行那些工作(target)。我們將xml命名為[precompileJSP.xml](https://github.com/hsush2017/precompile_jsp/blob/master/precompileJSP.xml)。  
-![property](https://i.imgur.com/DZGtaqs.png)  
+![property](https://i.imgur.com/DZGtaqs.png)  
 參數設定，請依照電腦的設定更換。
 
 ![path設定](https://i.imgur.com/9nAJsFR.png)  
@@ -43,7 +43,7 @@
 ![jspc](https://i.imgur.com/rfarglb.png)  
 透過JspC套件，**將jsp轉換成JAVA檔**。  
 在\<taskdef\>中，定義JspC，設定JspC會用到的jar和classpath，並取名為jasper2。  
-在\<jasper2\>中，轉換jsp至java。**addwebxmlmappings="true"表示在轉換時會將generated_web.xml合併到web.xml中**。轉換完成將JAVA檔存於jsp_java目錄下。
+在\<jasper2\>中，轉換jsp至java。**addwebxmlmappings="true"表示在轉換時會將generated_web.xml合併到web.xml中**。轉換完成將JAVA檔存於jsp_java目錄下。若不想將generated_web.xml合併在原本的web.xml，可將addwebxmlmappings設為false，但必須自行在web.xml中引入generated_web.xml，可參考[這篇文章](https://code.i-harness.com/zh-TW/q/2791f)的說明。
 
 ![compile jsp](https://i.imgur.com/AHMGUb8.png)  
 編譯java檔。  
@@ -55,7 +55,7 @@
 依序執行target: jspc, compile_jsp。
 
 開啟命令提示字元，移動到專案目錄下，執行ant。  
-![執行ant](https://i.imgur.com/fvXYgrK.png)  
+![執行ant](https://i.imgur.com/KMK6NEE.png)  
 
 #### 執行結果 
 1. **web.xml**  
